@@ -1,0 +1,32 @@
+HTTPS
+
+Certificate authority -> that issues digital certificates.
+
+client(browser) and server communicate securely with each other.
+
+protocol TLS
+
+client hello
+server hello and sends public key
+client verifies public key with its trusted sources sends key exchange messasge encrypted with server public key
+server verifies and says finished.
+
+Rediecting to Https
+
+client http request to server
+server sends 301 request requesting to redirect to https
+client sends https request now
+
+problem
+dosent work beacuse hacker can intercept first http request and can spoof
+
+solution
+strict-transport-security header max-age value
+instead of 301 it sends a 307 and its a valid up to max age value (still dosen tolsve thr problem bevause it needs to makes 1st insecure http req)
+
+strict-transport-security: include sub domians, preload, max-age
+preload actually preloads to https direclty even if you type http (browsers have this list)
+you need to update eveythung in website from http to https
+Content Security policy upgrade-insecure-requests can also do that
+
+cookies will be marked secure, so they wont get sent on an insecure request.
