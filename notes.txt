@@ -22,7 +22,7 @@ dosent work beacuse hacker can intercept first http request and can spoof
 
 solution
 strict-transport-security header max-age value
-instead of 301 it sends a 307 and its a valid up to max age value (still dosen tolsve thr problem bevause it needs to makes 1st insecure http req)
+instead of 301 it sends a 307 and its a valid up to max age value (still dosent solve the problem because it needs to makes 1st insecure http req)
 
 strict-transport-security: include sub domians, preload, max-age
 preload actually preloads to https direclty even if you type http (browsers have this list)
@@ -30,3 +30,10 @@ you need to update eveythung in website from http to https
 Content Security policy upgrade-insecure-requests can also do that
 
 cookies will be marked secure, so they wont get sent on an insecure request.
+
+http vs http2
+http -> text format
+http2 -> binary format much faster it requires TLS.
+
+browser req -> cloudfare(reverse proxy) -> original app deloyed to server.
+it can cache requests
