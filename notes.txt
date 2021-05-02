@@ -2,7 +2,7 @@ HTTPS
 
 Certificate authority -> that issues digital certificates.
 
-client(browser) and server communicate securely with each other.
+client(browser) and server communicate securely with each other and encrypts data going from client to server and vice versa.
 
 protocol TLS
 
@@ -22,10 +22,11 @@ dosent work beacuse hacker can intercept first http request and can spoof
 
 solution
 strict-transport-security header max-age value
+now when we make the call over http we get 307
 instead of 301 it sends a 307 and its a valid up to max age value (still dosent solve the problem because it needs to makes 1st insecure http req)
 
 strict-transport-security: include sub domians, preload, max-age
-preload actually preloads to https direclty even if you type http (browsers have this list)
+preload actually preloads to https direclty even if you type http (browsers have this list) hstspreload website
 you need to update eveythung in website from http to https
 Content Security policy upgrade-insecure-requests can also do that
 
@@ -37,3 +38,24 @@ http2 -> binary format much faster it requires TLS.
 
 browser req -> cloudfare(reverse proxy) -> original app deloyed to server.
 it can cache requests
+
+
+BROWSER SECURITY HEADERS
+
+cross site scripting
+insufficient TLS
+clickjacking
+
+add response headers from server, so client will follow it
+
+things servers cant control
+make req via http
+ca is comprimised
+
+headers
+cache control -> controls caching of resources with max-age
+
+HSTS(http strict transport security) (only works via https)
+
+HPKP (public key pinning)
+
