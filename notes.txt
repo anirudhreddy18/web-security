@@ -58,4 +58,23 @@ cache control -> controls caching of resources with max-age
 HSTS(http strict transport security) (only works via https)
 
 HPKP (public key pinning)
+whitelist allwable certificates for the domain
+need to come back
 
+Content Security Policy (dont need https)
+whitelisting what your site is allowed to run
+how scripts and styles may be embedded in page
+other defences to protect cross site attacks
+
+default-src : only load content from webiste itself not from other sources(lie youtube etc)
+script-src 'self' https://google.com ...
+style-src 'self'
+img-src
+font-src
+object-src none
+media-src none
+child-src    iframes
+connect-src  self (ui makirng requests to API xml, http async requests spa)
+unsafe-inline and unsafe-eval always write css into a file  ----check hashes and nonces
+frame-ancestors 'none' other sites wont embed my site in an iframe
+reporting -> get reports when csp is violated, so you can check for attackers
